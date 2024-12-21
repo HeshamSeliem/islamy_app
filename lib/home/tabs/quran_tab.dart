@@ -6,6 +6,7 @@ class QuranTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // i updated this file to test
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20.0),
       child: Column(

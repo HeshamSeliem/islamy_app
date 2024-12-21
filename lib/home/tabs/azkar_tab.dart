@@ -10,7 +10,7 @@ class AzkarTab extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text("Azkar Tab" , style: GoogleFonts.elMessiri(
+          Text("Azkar  tab tab tab Tab" , style: GoogleFonts.elMessiri(
             fontSize: 24,
             color: Colors.blueGrey
           ),)
