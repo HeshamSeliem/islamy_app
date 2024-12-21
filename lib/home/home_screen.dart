@@ -20,6 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Container(
       width: 200,
+      height: 200,
       decoration:  BoxDecoration(
         image: DecorationImage(image: AssetImage("assets/images/${getBackGroundImage()}",
         ),
