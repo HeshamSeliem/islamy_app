@@ -13,7 +13,8 @@ class AhadethTab extends StatelessWidget {
           Text("Ahadeth Tab" , style: GoogleFonts.elMessiri(
             fontSize: 24,
             color: Colors.blueGrey
-          ),)
+          ),),
+          Text("hello after ensouring "),
         ],
       ),
     );
