@@ -13,7 +13,8 @@ class SebhaTab extends StatelessWidget {
           Text("Sebha Tab" , style: GoogleFonts.elMessiri(
             fontSize: 24,
             color: Colors.blueGrey
-          ),)
+          ),),
+          Text("hello sebha screen ")
         ],
       ),
     );
