@@ -19,6 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: 200,
       decoration:  BoxDecoration(
         image: DecorationImage(image: AssetImage("assets/images/${getBackGroundImage()}",
         ),
