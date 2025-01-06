@@ -12,14 +12,16 @@ class SuraModel {
   });
    static SuraModel getModel(index)
   {
-    return SuraModel(index: index,
+    return SuraModel(
+      index: index,
      numVerses: ayaNumber[index],
       suraAr: arabicQuranSuras[index],
        suraEn: englishQuranSurahs[index]);
   }
   static SuraModel getSelectedSuraModel(index)
   {
-    return SuraModel(index: index,
+    return SuraModel(
+      index: index,
      numVerses: ayaNumber[index],
       suraAr: suraResult[index],
        suraEn: suraResult[index]);
