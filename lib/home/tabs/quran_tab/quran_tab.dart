@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:islamy_app/home/tabs/quran_tab/horisental_sura_item.dart';
 import 'package:islamy_app/home/tabs/quran_tab/sura_name_item.dart';
 import 'package:islamy_app/models/sura_model.dart';
+import 'package:islamy_app/suraDetails/sura_details.dart';
 
 class QuranTab extends StatefulWidget {
    QuranTab({super.key});
@@ -16,12 +17,11 @@ class _QuranTabState extends State<QuranTab> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     searchController.addListener(onSearch);
   }
   onSearch(){
-    SuraModel.suraResult.clear();
+    SuraModel.suraResult.clear(); // to delete the list item befor searching
     String text = searchController.text;
     if(text.isNotEmpty)
     {
@@ -55,13 +55,69 @@ class _QuranTabState extends State<QuranTab> {
           children: [ Image.asset("assets/images/titlewidget.png",) ]),
            _searchItem(),
           const SizedBox(height: 20,),
+           _horisentalSuraName(),
+          const SizedBox(height: 16,),
+          _verticalSuraName(),
+        ],
+      ),
+    );
+  }
+  Widget _verticalSuraName()
+  {
+    return Expanded(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+              Text("Sura List",style: GoogleFonts.elMessiri(
+              fontSize: 16,
+              fontWeight: FontWeight.w700,
+              color: Colors.white
+            ),),
+            const SizedBox(height: 8,),
+            Expanded(
+              child: ListView.builder(
+                itemCount: SuraModel.suraResult.isNotEmpty
+                ? SuraModel.suraResult.length
+                : SuraModel.englishQuranSurahs.length
+                ,
+                itemBuilder: (context, index) {
+                  return InkWell(
+                    onTap: ()
+                    {
+                      Navigator.pushNamed(
+                        context,
+                         SuraDetailsScreen.routeName,
+                         arguments: SuraModel.getModel(index)
+                         );
+                    },
+                    child: SuraNameItem(
+                                  
+                      suraModel: (SuraModel.suraResult.isNotEmpty)
+                      ?SuraModel.getSelectedSuraModel(index)
+                      :SuraModel.getModel(index)
+                    ),
+                  );
+                
+                },
+                ),
+            )
+        ],
+      ),
+    );
+  }
+ 
+  Widget _horisentalSuraName()
+  {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
           Text("Most Recently",style: GoogleFonts.elMessiri(
             fontSize: 16,
             fontWeight: FontWeight.w700,
             color: Colors.white
           ),),
           const SizedBox(height: 16,),
-          (SuraModel.suraResult.isNotEmpty) ? SizedBox()
+          (searchController.text.isNotEmpty) ? SizedBox()
         : SizedBox(
           height: 150,
            child: ListView.separated(
@@ -72,35 +128,10 @@ class _QuranTabState extends State<QuranTab> {
              separatorBuilder: (context, index) => const SizedBox(width: 10,),
               itemCount:englishQuranSurahs.length),
          ),
-          const SizedBox(height: 16,),
-           Text("Sura List",style: GoogleFonts.elMessiri(
-            fontSize: 16,
-            fontWeight: FontWeight.w700,
-            color: Colors.white
-          ),),
-          const SizedBox(height: 8,),
-          Expanded(
-            child: ListView.builder(
-              itemCount: SuraModel.suraResult.isNotEmpty
-              ? SuraModel.suraResult.length
-              : SuraModel.englishQuranSurahs.length
-              ,
-              itemBuilder: (context, index) {
-                return SuraNameItem(
-                 
-                  suraModel: (SuraModel.suraResult.isNotEmpty)
-                  ?SuraModel.getSelectedSuraModel(index)
-                  :SuraModel.getModel(index)
-                );
-            
-              },
-              ),
-          )
-        ],
-      ),
+      ],
     );
   }
-
+  
   Widget _searchItem()
   {
     return  TextField(

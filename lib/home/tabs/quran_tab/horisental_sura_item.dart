@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:islamy_app/models/sura_model.dart';
 
+// ignore: must_be_immutable
 class HorisentalSuraItem extends StatelessWidget {
    HorisentalSuraItem({required this.model, super.key});
   SuraModel model;
@@ -10,7 +11,7 @@ class HorisentalSuraItem extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        color: Color(0xffE2BE7F),
+        color:const Color(0xffE2BE7F),
       ),
       width: 280,
       child: Row(
@@ -22,20 +23,20 @@ class HorisentalSuraItem extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("${model.suraEn}",style: GoogleFonts.elMessiri(
+                Text(model.suraEn,style: GoogleFonts.elMessiri(
                  fontSize: 20,
                   fontWeight: FontWeight.w700,
-                  color: Color(0xff202020)
+                  color:const Color(0xff202020)
                 ),),
-                Text("${model.suraAr}",style: GoogleFonts.elMessiri(
+                Text(model.suraAr,style: GoogleFonts.elMessiri(
                  fontSize: 24,
                   fontWeight: FontWeight.w700,
-                  color: Color(0xff202020)
+                  color:const Color(0xff202020)
                 ),),
                 Text("${model.numVerses} Verses",style: GoogleFonts.elMessiri(
                  fontSize: 14,
                   fontWeight: FontWeight.w700,
-                  color: Color(0xff202020)
+                  color: const Color(0xff202020)
                 ),)
             
               ],

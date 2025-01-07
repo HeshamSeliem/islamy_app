@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:islamy_app/home/home_screen.dart';
 import 'package:islamy_app/onbording_screen.dart';
+import 'package:islamy_app/suraDetails/sura_details.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,6 +19,8 @@ class MyApp extends StatelessWidget {
      routes: {
       OnBordingScreen.routeName : (context) =>  OnBordingScreen(),
       HomeScreen.routeName : (context) =>   HomeScreen(),
+       SuraDetailsScreen.routeName : (context) => SuraDetailsScreen(),
+
      }, );
   }
 }
