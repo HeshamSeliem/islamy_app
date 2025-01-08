@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:islamy_app/cache/cache_helper.dart';
 import 'package:islamy_app/home/home_screen.dart';
+import 'package:islamy_app/my_theme_data.dart';
 import 'package:islamy_app/onbording_screen.dart';
 import 'package:islamy_app/suraDetails/sura_details.dart';
 
@@ -17,6 +18,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  MaterialApp(
+      theme: MyThemeData.lightTheme,
+      darkTheme: MyThemeData.darkTheme,
+      themeMode: ThemeMode.light,
       debugShowCheckedModeBanner: false,
      initialRoute: CashHelper.getEligipility() == true
      ? HomeScreen.routeName

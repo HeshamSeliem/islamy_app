@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:islamy_app/models/sura_model.dart';
+import 'package:islamy_app/my_theme_data.dart';
 
 class SuraNameItem extends StatelessWidget {
    SuraNameItem({
@@ -53,11 +54,11 @@ class SuraNameItem extends StatelessWidget {
                 ),
           ],
         ),
-        const Divider(
+         Divider(
           thickness: 1,
           endIndent: 20,
           indent: 20,
-          color: Color(0xffFFFFFF),
+          color: MyThemeData.primaryColor,
         )
       ],
     );
