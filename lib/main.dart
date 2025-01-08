@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:islamy_app/cache/cache_helper.dart';
 import 'package:islamy_app/home/home_screen.dart';
 import 'package:islamy_app/onbording_screen.dart';
 import 'package:islamy_app/suraDetails/sura_details.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+ await CashHelper.init();
   runApp(const MyApp());
 }
 
@@ -15,11 +18,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return  MaterialApp(
       debugShowCheckedModeBanner: false,
-     initialRoute: OnBordingScreen.routeName,
+     initialRoute: CashHelper.getEligipility() == true
+     ? HomeScreen.routeName
+     : OnBordingScreen.routeName,
      routes: {
       OnBordingScreen.routeName : (context) =>  OnBordingScreen(),
       HomeScreen.routeName : (context) =>   HomeScreen(),
-       SuraDetailsScreen.routeName : (context) => SuraDetailsScreen(),
+       SuraDetailsScreen.routeName : (context) =>const SuraDetailsScreen(),
 
      }, );
   }
