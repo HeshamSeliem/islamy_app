@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:islamy_app/models/sura_model.dart';
+import 'package:islamy_app/my_theme_data.dart';
 
 class SuraDetailsScreen extends StatefulWidget {
   const SuraDetailsScreen({super.key});
@@ -23,9 +24,9 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
       loadSuraFile(suraModel.index);
     }
     return Scaffold(
-      backgroundColor: const Color(0xff202020),
+      backgroundColor: MyThemeData.darkColor,
       appBar: AppBar(
-        backgroundColor: const Color(0xff202020),
+       // backgroundColor: const Color(0xff202020),
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -37,10 +38,7 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
         ),
         title: Text(
           suraModel.suraEn,
-          style: GoogleFonts.elMessiri(
-              fontSize: 24,
-              fontWeight: FontWeight.w700,
-              color: const Color(0xffE2BE7F)),
+         
         ),
         centerTitle: true,
       ),
@@ -54,10 +52,9 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
               children: [
                 Image.asset("assets/images/left_mask.png"),
                 Text(suraModel.suraAr,
-                    style: GoogleFonts.scheherazadeNew(
-                        fontSize: 24,
-                        fontWeight: FontWeight.w700,
-                        color: const Color(0xffE2BE7F))),
+                    style: Theme.of(context).textTheme.titleLarge!.copyWith()
+                    ),
+
                 Image.asset("assets/images/right_mask.png"),
               ],
             ),
@@ -79,17 +76,11 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
                             TextSpan(children: [
                               TextSpan(
                                 text: verses[index].trim(),
-                                style: GoogleFonts.scheherazadeNew(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.w700,
-                                    color: const Color(0xffE2BE7F)),
+                                style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 20)
                               ),
                               TextSpan(
                                 text: " (${index + 1})",
-                                style: GoogleFonts.scheherazadeNew(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.w700,
-                                    color: const Color(0xffE2BE7F)),
+                                style: Theme.of(context).textTheme.bodySmall
                               )
                             ]))),
                   );

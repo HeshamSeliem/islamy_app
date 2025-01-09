@@ -26,7 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
         )
       ),
        child:  Scaffold( 
-        backgroundColor: Colors.transparent,
+        //backgroundColor: Colors.transparent,
         bottomNavigationBar: ButtomNavBar(onChanged: (index){
         currentIndex = index;
         setState(() {
