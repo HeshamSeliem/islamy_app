@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:introduction_screen/introduction_screen.dart';
+import 'package:islamy_app/cache/cache_helper.dart';
 import 'package:islamy_app/home/home_screen.dart';
 
 class OnBordingScreen extends StatelessWidget {
@@ -100,6 +101,7 @@ class OnBordingScreen extends StatelessWidget {
     final introKey = GlobalKey<IntroductionScreenState>();
 
   void _onIntroEnd(context) {
+    CashHelper.saveEligipility();
     Navigator.pushReplacementNamed(context, HomeScreen.routeName);
   }
 }
